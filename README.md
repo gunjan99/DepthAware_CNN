@@ -1,7 +1,7 @@
 ### Depth-aware CNN for RGB-D Segmentation [<a href="https://arxiv.org/pdf/1803.06791.pdf">Arxiv</a>]
 
 ### Installation
-Install <a href="http://pytorch.org/">Pytorch</a>, <a href="https://github.com/Knio/dominate">dominate</a>, <a href="https://github.com/lanpa/tensorboard-pytorch">TensorBoardX</a>.
+Install <a href="http://pytorch.org/">Pytorch</a>, <a href="https://github.com/Knio/dominate">dominate</a>, <a href="https://github.com/lanpa/tensorboard-pytorch">TensorBoardX</a>, <a href="https://anaconda.org/pytorch/torchvision">torchVision</a>, <a href = "https://anaconda.org/conda-forge/opencv">openCV</a>, SciPy(1.2.0).
 
 The depth-aware convolution and depth-aware average pooling operations are under folder `models/ops`, to build them, simply use `sh make.sh` to compile.
 
