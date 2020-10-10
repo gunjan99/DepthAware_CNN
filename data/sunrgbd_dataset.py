@@ -4,6 +4,12 @@ import torchvision
 import torchvision.transforms as transforms
 import torch
 import h5py
+
+### CHANGES - START
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN')
+### CHANGES - END
+
 from data.base_dataset import *
 from PIL import Image
 import math, random

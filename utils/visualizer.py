@@ -2,8 +2,14 @@ import numpy as np
 import os
 import ntpath
 import time
-from . import util
-from . import html
+
+#CHANGES - START
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN')
+#CHANGES - END
+
+from utils import util
+from utils import html
 import scipy.misc
 try:
     from StringIO import StringIO  # Python 2.7

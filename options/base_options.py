@@ -2,6 +2,12 @@
 ### Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 import argparse
 import os
+
+#CHANGES - START
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN')
+#CHANGES - END
+
 from utils import util
 import torch
 

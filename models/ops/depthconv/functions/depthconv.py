@@ -2,7 +2,7 @@ import torch
 from torch.autograd import Function
 from torch.nn.modules.utils import _pair
 import cffi
-from .._ext import depthconv
+import depthconv                                            # from .._ext import depthconv
 
 
 def depth_conv(input,
@@ -59,7 +59,7 @@ class DepthconvFunction(Function):
         else:
             if not isinstance(input, torch.cuda.FloatTensor):
                 raise NotImplementedError
-            depthconv.depthconv_forward_cuda(
+            depthconv.forward(                                #depthconv.depthconv_forward_cuda(
                     input, depth, weight, bias,  output, self.columns,self.ones,
                     weight.size(3), weight.size(2), self.stride[1], self.stride[0],
                     self.padding[1], self.padding[0], self.dilation[1], self.dilation[0])
@@ -79,7 +79,7 @@ class DepthconvFunction(Function):
                 raise NotImplementedError
             if self.needs_input_grad[0]:
                 grad_input = input.new(*input.size()).zero_()
-                depthconv.depthconv_backward_input_cuda(
+                depthconv.backward_input(                                    #depthconv.depthconv_backward_input_cuda(
                     input, depth, grad_output, grad_input,
                     weight, self.columns,
                     weight.size(3),
@@ -97,7 +97,7 @@ class DepthconvFunction(Function):
                 else:
                     grad_bias = self.null
 
-                depthconv.depthconv_backward_parameters_cuda(
+                depthconv.backward_parameters(                               #depthconv.depthconv_backward_parameters_cuda(
                     input, depth, grad_output, grad_weight, grad_bias, self.columns,
                     self.ones,
                     weight.size(3),

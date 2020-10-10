@@ -2,7 +2,8 @@ import torch
 from torch.autograd import Function
 from torch.nn.modules.utils import _pair
 import cffi
-from .._ext import depthavgpooling
+# from .._ext import depthavgpooling
+import depthavgpooling
 
 
 def depth_avgpooling( input,
@@ -40,7 +41,8 @@ class DepthavgpoolingFunction(Function):
         else:
             if not isinstance(input, torch.cuda.FloatTensor):
                 raise NotImplementedError
-            depthavgpooling.depthavgpooling_forward_cuda(
+            
+            depthavgpooling.forward(                                        # depthavgpooling.depthavgpooling_forward_cuda(    
                     input, depth, output, self.depthweightcount,
                     self.kernel_size[1], self.kernel_size[0], self.stride[1], self.stride[0],
                     self.padding[1], self.padding[0])
@@ -58,7 +60,7 @@ class DepthavgpoolingFunction(Function):
                 raise NotImplementedError
             if self.needs_input_grad[0]:
                 grad_input = input.new(*input.size()).zero_()
-                depthavgpooling.depthavgpooling_backward_input_cuda(
+                depthavgpooling.backward(
                     input, depth, self.depthweightcount,grad_output, grad_input,
                     self.kernel_size[1], self.kernel_size[0], self.stride[1], self.stride[0],
                     self.padding[1], self.padding[0])

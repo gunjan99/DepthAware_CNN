@@ -4,8 +4,10 @@ import torch
 import torch.nn as nn
 from torch.nn.modules.module import Module
 from torch.nn.modules.utils import _pair
-from ..functions import depth_avgpooling
-
+# from ..functions import depth_avgpooling    # APT CHANGES MADE BELOW
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN/models/ops/depthavgpooling/functions')
+from depthavgpooling import depth_avgpooling
 
 class Depthavgpooling(Module):
     def __init__(self,

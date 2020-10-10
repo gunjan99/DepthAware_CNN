@@ -1,0 +1,6 @@
+depthavgpooling.egg-info/PKG-INFO
+depthavgpooling.egg-info/SOURCES.txt
+depthavgpooling.egg-info/dependency_links.txt
+depthavgpooling.egg-info/top_level.txt
+src/depthavgpooling.cpp
+src/depthavgpooling_cuda.cpp

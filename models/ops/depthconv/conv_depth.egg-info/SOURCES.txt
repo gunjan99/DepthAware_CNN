@@ -1,0 +1,6 @@
+conv_depth.egg-info/PKG-INFO
+conv_depth.egg-info/SOURCES.txt
+conv_depth.egg-info/dependency_links.txt
+conv_depth.egg-info/top_level.txt
+src/depthconv.cpp
+src/depthconv_cuda.cpp

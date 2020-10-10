@@ -1,6 +1,10 @@
 import torch.utils.data
-from .base_data_loader import BaseDataLoader
 
+### CHANGES - START
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN')
+### CHANGES - END
+from data.base_data_loader import BaseDataLoader            #from .base_data_loader import BaseDataLoader
 
 def CreateDataset(opt):
     dataset = None

@@ -1,5 +1,9 @@
 import os
 import numpy as np
+### NEWLY ADDED - START
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN')
+### NEWLY ADDED - END
 from utils import util
 import torch
 

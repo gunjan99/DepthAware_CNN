@@ -4,7 +4,11 @@ import torch
 import torch.nn as nn
 from torch.nn.modules.module import Module
 from torch.nn.modules.utils import _pair
-from ..functions import depth_conv
+# from ..functions import depth_conv
+# from depthconv.functions.depthconv import depth_conv
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN/models/ops/depthconv/functions')
+from depthconv import depth_conv
 
 
 class DepthConv(Module):

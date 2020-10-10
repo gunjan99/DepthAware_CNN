@@ -2,16 +2,23 @@ import torch.nn as nn
 import math
 import torch.utils.model_zoo as model_zoo
 import torch
-from .base_model import BaseModel
+
+##  NEWLY ADDED - START
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN')
+## NEWLY ADDED - FINISH
+
+
+from models.base_model import BaseModel                     ##from .base_model import BaseModel
 import numpy as np
-from . import losses
+from models import losses                                   ## from . import losses
 import shutil
 from utils.util import *
 from torch.autograd import Variable
 from collections import OrderedDict
 from tensorboardX import SummaryWriter
 import os
-import VGG_Deeplab as VGG_Deeplab
+import models.VGG_Deeplab as VGG_Deeplab                           ## import VGG_Deeplab as VGG_Deeplab
 
 
 class Deeplab_VGG(nn.Module):
@@ -172,10 +179,15 @@ class Deeplab_Solver(BaseModel):
 
         self.writer.add_scalar(self.opt.name+'/Learning_Rate/', lr, step)
 
-	self.optimizer.param_groups[0]['lr'] = lr
-	self.optimizer.param_groups[1]['lr'] = lr
-	self.optimizer.param_groups[2]['lr'] = lr
-	self.optimizer.param_groups[3]['lr'] = lr
+        ### INDENTED ONE TAB AHEAD -> EARLIER IT WAS ONE TAB BEHIND
+
+        self.optimizer.param_groups[0]['lr'] = lr
+        self.optimizer.param_groups[1]['lr'] = lr
+        self.optimizer.param_groups[2]['lr'] = lr
+        self.optimizer.param_groups[3]['lr'] = lr
+
+
+        
 	# self.optimizer.param_groups[0]['lr'] = lr
 	# self.optimizer.param_groups[1]['lr'] = lr*10
 	# self.optimizer.param_groups[2]['lr'] = lr*2 #* 100

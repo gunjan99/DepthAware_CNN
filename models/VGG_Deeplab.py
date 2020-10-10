@@ -1,9 +1,15 @@
-from model_utils import *
+##  NEWLY ADDED - START
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN')
+## NEWLY ADDED - FINISH
+
+
+from models.model_utils import *                                #from model_utils import *
 import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
 import math
-from .ops.depthconv.modules import DepthConv
-from .ops.depthavgpooling.modules import Depthavgpooling
+from models.ops.depthconv.modules import DepthConv                    ##from .ops.depthconv.modules import DepthConv
+from models.ops.depthavgpooling.modules import Depthavgpooling              ##from .ops.depthavgpooling.modules import Depthavgpooling
 import torch
 import torchvision
 
