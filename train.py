@@ -1,6 +1,11 @@
 import time
 from tensorboardX import SummaryWriter
 from collections import OrderedDict
+
+import sys
+sys.path.insert(0, '/home/jarvis/DepthAwareCNN')
+
+
 from options.train_options import TrainOptions
 from data.data_loader import CreateDataLoader
 from models.models import create_model
